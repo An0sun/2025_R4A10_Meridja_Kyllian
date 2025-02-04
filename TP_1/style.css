@@ -1,5 +1,6 @@
 body{
-    background-color: rgb(255, 238, 217);
+    background-color: rgb(44, 44, 44);
+    color: rgb(255, 115, 0);
     margin: 0;
     padding: 0;
 }
@@ -9,12 +10,13 @@ ul{
 }
 
 #navbar{
+    font-weight: bold;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1rem;
-    border-bottom: 2px solid rgb(182, 182, 182);
+    border-bottom: 2px solid rgb(255, 115, 0);
 }
 
 #nomPrenom{
@@ -31,51 +33,90 @@ ul{
     display: flex;
 }
 
-#main{
-    margin-left: 3rem;
-    margin-right: 3rem;
-}
-
-#titre{
-    padding-left: 3rem;
-}
-
-@media screen and (width>=600px) {
-    #cartes{
-        display: grid;
-        padding-right: 30px;
-        gap: 10px;
-        grid-template-columns: repeat(1, 1fr);
-    }
-}
-
-@media screen and (width>=1024px) {
-    #cartes{
-        display: grid;
-        padding-right: 30px;
-        gap: 10px;
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media screen and (width>=1200px) and (width<=2000px) {
-    #cartes{
-        display: grid;
-        padding-right: 30px;
-        gap: 10px;
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-.contenuCarte{
-    border:1px solid black;
+#liste_nav li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 0.5rem 1rem;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.imageCarte{
+#liste_nav li a:hover {
+    background-color: rgb(255, 115, 0);
+    color: black;
+}
+
+#main{
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+#titre {
+    padding-left: 3rem;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: flex;
+    margin: 2rem 0;
+    color: rgb(255, 255, 255);
+}
+
+#cartes {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(1, 1fr); /* 1 carte par ligne */
+    padding: 20px;
+}
+
+/* Pour les écrans moyens (>= 600px) */
+@media screen and (min-width: 600px) {
+    #cartes {
+        grid-template-columns: repeat(2, 1fr); /* 2 cartes par ligne */
+    }
+}
+
+/* Pour les écrans larges (>= 1024px) */
+@media screen and (min-width: 1024px) {
+    #cartes {
+        grid-template-columns: repeat(3, 1fr); /* 3 cartes par ligne */
+        gap: 15px; /* Ajustement de l'espacement */
+        padding: 30px; /* Marges internes pour un meilleur espacement */
+    }
+}
+
+/* Pour les très grands écrans (1200px à 2000px) */
+@media screen and (min-width: 1200px) and (max-width: 2000px) {
+    #cartes {
+        grid-template-columns: repeat(4, 1fr); /* 4 cartes par ligne */
+        gap: 20px;
+        padding: 40px;
+    }
+}
+
+.contenuCarte {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 1px solid rgb(255, 115, 0);
+    border-radius: 8px;
+    background-color: #333333;
+    overflow: hidden; /* Coupe tout débordement */
+    margin: 10px;
+    padding: 0;
+    height: auto; /* Hauteur automatique pour s'ajuster */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contenuCarte:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(255, 115, 0, 0.4);
+}
+
+.imageCarte {
     text-align: center;
-    padding: 4rem;
-    border-bottom:1px solid black;
+    padding: 2rem;
+    color: rgb(255, 115, 0);
+    font-weight: bold;
 }
 
 .infoCarte{
@@ -83,10 +124,11 @@ ul{
 }
 
 #Logo{
-    background-color: rgb(221, 221, 221);
+    background-color: rgb(49, 49, 49);
     padding-left: 40px;
     padding: 20px;
     padding-right: 80px;
+    font-weight: bold;
 }
 
 #Slogan{
@@ -94,14 +136,79 @@ ul{
     padding-left: 20px;
 }
 
-footer{
+footer {
+    background-color: rgb(44, 44, 44);
+    color: rgb(255, 115, 0);
+    padding: 2rem;
     display: flex;
-    border-top: 2px solid rgb(189, 189, 189);
     justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid rgb(255, 115, 0);
+    border-bottom: 2px solid rgb(255, 115, 0);
+    padding-bottom: 5px;
 }
 
 #liens{
     display: flex;
     gap:10rem;
     padding-right: 20rem;
+}
+
+.lienCarte a {
+    color: rgb(255, 115, 0);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.lienCarte a:hover {
+    background-color: black;
+    color: rgb(255, 115, 0);
+    cursor: pointer;
+}
+
+#liens ul li a {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+#liens ul li a:hover {
+    color: rgb(255, 115, 0); 
+    text-decoration: underline; 
+}
+
+.titreCarte {
+    font-size: 20px;
+    display: inline-block; 
+    color: rgb(255, 115, 0); 
+    font-weight: bold; 
+}
+
+.descCarte {
+    border-top: 1px solid rgb(255, 115, 0); 
+    margin-right: 1rem;
+    padding-top: 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+.imageCarte {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Assure que le conteneur d'image occupe toute la largeur */
+    height: 200px; /* hauteur fixe pour le conteneur */
+    overflow: hidden; /* Coupe toute partie débordante de l'image */
+    margin: 0; /* Supp les marges */
+    padding: 0; /* Supp les paddings */
+}
+
+.imageCarte img {
+    width: 100%; /* L'image occupe toute largeur du conteneur */
+    height: 100%; /* L'image occupe toute hauteur du conteneur */
+    object-fit: cover; /* Recadre l'image pour remplir le conteneur */
+    display: block; /* Supp les espaces blancs sous l'image */
+    border-radius: 8px;
 }
