@@ -17,19 +17,19 @@ export class TestimonialComponent {
   // Liste des témoignages typée
   testimonials: Testimonial[] = [
     {
-      image: 'lego_1.jpg', 
+      image: 'assets/images/lego_1.jpg', 
       name: 'Edward Newgate',
       role: 'Founder Circle',
       text: 'Our dedicated patient engagement app and web portal allow you to access information instantaneously (no tedious form, long calls, or administrative hassle) and securely.'
     },
     {
-      image: 'lego_2.jpg',
+      image: 'assets/images/lego_2.jpg',
       name: 'John Doe',
       role: 'CEO',
       text: 'Innovative solutions that make a difference. Easy to use, effective and secure.'
     },
     {
-      image: 'lego_3.jpg', 
+      image: 'assets/images/lego_3.jpg', 
       name: 'Sarah Smith',
       role: 'Marketing Manager',
       text: 'A wonderful experience! I highly recommend this service to everyone.'
