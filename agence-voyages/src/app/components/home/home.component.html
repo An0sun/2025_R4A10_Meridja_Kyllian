@@ -1,0 +1,34 @@
+<div class="p-8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen">
+
+    <h1 class="text-4xl text-white text-center font-extrabold mb-16 tracking-wider uppercase drop-shadow-lg">
+        🌍 Nos Voyages
+    </h1>
+
+    <!-- Grille Travels -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mx-auto max-w-7xl">
+        @for (travel of paginatedTravels; track $index) {
+            <app-card [travel]="travel"></app-card>
+          }
+        </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-center mt-10 space-x-4">
+        <button 
+            (click)="prevPage()" 
+            [disabled]="currentPage === 1"
+            class="px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg transition-all duration-300 disabled:bg-gray-600 disabled:cursor-not-allowed">
+            ⬅️ Précédent
+        </button>
+        
+        <span class="px-6 py-2 bg-gray-700 text-white font-bold text-lg rounded-lg shadow-md">
+            📍 Page {{ currentPage }}
+        </span>
+
+        <button 
+            (click)="nextPage()" 
+            [disabled]="currentPage * itemsPerPage >= travels.length"
+            class="px-5 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-500 hover:shadow-lg transition-all duration-300 disabled:bg-gray-600 disabled:cursor-not-allowed">
+            Suivant ➡️
+        </button>
+    </div>
+</div>

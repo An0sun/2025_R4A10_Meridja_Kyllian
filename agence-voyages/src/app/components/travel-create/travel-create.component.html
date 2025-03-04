@@ -1,0 +1,40 @@
+<div class="p-8 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 min-h-screen">
+    <!-- Title -->
+    <h1 class="text-4xl text-white text-center mb-12 font-extrabold tracking-wide uppercase drop-shadow-lg">
+        🌍 Génération de Voyages
+    </h1>
+  
+    <!-- Generate Button -->
+    <div class="flex justify-center mb-8">
+      <button
+        (click)="generateTravel()"
+        class="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-500 hover:shadow-xl transition-all duration-300">
+        ✨ Générer un Voyage
+      </button>
+    </div>
+  
+    @if (generatedTravel) {
+      <div class="flex justify-center">
+        <div class="bg-gray-800 rounded-xl p-6 shadow-2xl w-full max-w-md text-white transform transition-all duration-300 hover:scale-105 hover:shadow-3xl">
+          <!-- Destination -->
+          <h2 class="text-3xl font-bold text-blue-400 tracking-wide">{{ generatedTravel['destination'] }}</h2>
+  
+          <!-- Description -->
+          <p class="text-gray-300 mt-2 italic">{{ generatedTravel['description'] }}</p>
+  
+          <!-- Prix -->
+          <p class="text-xl font-bold text-green-400 mt-4 bg-green-900 bg-opacity-30 px-3 py-1 rounded-full inline-block shadow-md">
+              💰 Prix: €{{ generatedTravel['prix'] }}
+          </p>
+  
+          <!-- Button -->
+          <button
+            (click)="createTravel()"
+            class="mt-6 w-full px-6 py-2 bg-green-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-green-500 hover:shadow-xl transition-all duration-300">
+            ✅ Ajouter Voyage
+          </button>
+        </div>
+      </div>
+    }
+  </div>
+  
