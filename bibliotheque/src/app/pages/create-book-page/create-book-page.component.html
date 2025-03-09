@@ -1,0 +1,62 @@
+<form [formGroup]="createBookForm" (ngSubmit)="onSubmit()" 
+  class="max-w-xl mx-auto bg-white shadow-lg rounded-2xl p-8 border border-gray-200">
+
+  <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Ajouter un Livre</h2>
+
+  <!-- Auteur -->
+  <div class="mb-5">
+    <label for="author" class="block text-lg font-medium text-gray-700">Auteur</label>
+    <input 
+      type="text" id="author" formControlName="author"
+      class="w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+    />
+    @if (author?.invalid && author?.dirty) {
+      <p class="text-red-500 text-sm mt-2">
+        @if (author?.getError('required')) { L'auteur est requis. }
+        @else if (author?.getError('minlength')) { L'auteur doit contenir au moins 5 caractères. }
+        @else { L'auteur doit contenir maximum 50 caractères. }
+      </p>
+    }
+  </div>
+
+  <!-- Titre -->
+  <div class="mb-5">
+    <label for="title" class="block text-lg font-medium text-gray-700">Titre</label>
+    <input 
+      type="text" id="title" formControlName="title"
+      class="w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+    />
+    @if (title?.invalid && title?.dirty) {
+      <p class="text-red-500 text-sm mt-2">
+        @if (title?.getError('required')) { Le titre est requis. }
+        @else if (title?.getError('minlength')) { Le titre doit contenir au moins 2 caractères. }
+        @else { Le titre doit contenir maximum 35 caractères. }
+      </p>
+    }
+  </div>
+
+  <!-- Description -->
+  <div class="mb-5">
+    <label for="description" class="block text-lg font-medium text-gray-700">Description</label>
+    <textarea 
+      id="description" formControlName="description"
+      class="w-full mt-1 px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none h-32"
+    ></textarea>
+    @if (description?.invalid && description?.dirty) {
+      <p class="text-red-500 text-sm mt-2">
+        @if (description?.getError('required')) { La description est requise. }
+        @else if (description?.getError('minlength')) { La description doit contenir au moins 10 caractères. }
+        @else { La description doit contenir maximum 255 caractères. }
+      </p>
+    }
+  </div>
+
+  <!-- Bouton Valider -->
+  <button 
+    type="submit" [disabled]="createBookForm.invalid"
+    class="w-full bg-blue-600 text-white text-lg font-semibold py-3 px-6 rounded-lg transition-all hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg"
+  >
+    Ajouter le Livre
+  </button>
+
+</form>
