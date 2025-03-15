@@ -1,0 +1,43 @@
+<div class="order-page">
+    <h1>Commander une Pizza</h1>
+    
+    <form [formGroup]="orderForm" (ngSubmit)="submitOrder()">
+      
+      <label for="pizza">Pizza :</label>
+      <select id="pizza" formControlName="pizza">
+        <option *ngFor="let pizza of pizzas" [value]="pizza.name">
+          {{ pizza.name }}
+        </option>
+      </select>
+      <div *ngIf="orderForm.get('pizza')?.invalid && orderForm.get('pizza')?.touched">
+        <small class="error">Sélectionnez une pizza</small>
+      </div>
+  
+      <label for="size">Taille :</label>
+      <select id="size" formControlName="size">
+        <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+      </select>
+      <div *ngIf="orderForm.get('size')?.invalid && orderForm.get('size')?.touched">
+        <small class="error">Sélectionnez une taille</small>
+      </div>
+  
+      <label for="paymentMethod">Moyen de paiement :</label>
+      <select id="paymentMethod" formControlName="paymentMethod">
+        <option *ngFor="let method of paymentMethods" [value]="method">
+          {{ method }}
+        </option>
+      </select>
+      <div *ngIf="orderForm.get('paymentMethod')?.invalid && orderForm.get('paymentMethod')?.touched">
+        <small class="error">Sélectionnez un moyen de paiement</small>
+      </div>
+  
+      <label for="email">Email :</label>
+      <input type="email" id="email" formControlName="email" />
+      <div *ngIf="orderForm.get('email')?.invalid && orderForm.get('email')?.touched">
+        <small class="error">Entrez un email valide</small>
+      </div>
+  
+      <button type="submit" [disabled]="orderForm.invalid">Commander</button>
+    </form>
+  </div>
+  
