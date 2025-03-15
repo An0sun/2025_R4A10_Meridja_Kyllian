@@ -1,0 +1,13 @@
+<header>
+  <div class="nav-container">
+    <a class="brand" href="/">Pizzeria Anosun</a>
+    <button class="burger-menu" (click)="toggleMenu()">☰</button>
+    <nav [class.open]="isMenuOpen">
+      <ul>
+        <li><a href="/">Nos pizzas</a></li> 
+        <li><a href="/commandes">Commandes</a></li> 
+        <li><a href="/commander">Commander</a></li> 
+      </ul>
+    </nav>
+  </div>
+</header>
